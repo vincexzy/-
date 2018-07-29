@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    // ajax 与 session
+      fetch("/ajax",{credentials:'include'}).then(res=>res.text()).then(text=>console.log(text));
+      // var xhr = new XMLHttpRequset();
+      // xhr.withCredentials = true;
+    </script>
+  </body>
+</html>

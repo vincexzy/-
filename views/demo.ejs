@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="/socket.io/socket.io.js"></script>
+
+
+</head>
+
+<body>
+  <div class="list">
+  </div>
+  <h1>see</h1>
+  <h1><%= num %></h1>
+  <input type="text" name="" value="" onchange="say(event)"><br><br>
+  <input type="text" name="" value="" onchange="doit(event)">
+
+  <script type="text/javascript">
+    const socket = io.connect();
+    const listdom = document.querySelector(".list");
+
+    function doit(event) {
+      socket.emit("req",event.target.value,function(res){
+        console.log(res * res);
+      });
+
+    }
+    socket.on("newsay",word =>{
+      const pdom = document.createElement("p");
+      pdom.innerText = word;
+      listdom.appendChild(pdom);
+    });
+
+    function say(event){
+      socket.emit("say",event.target.value);
+    }
+    // socket.on("welcome",data=>console.log(data));
+    // socket.emit("question","wo xiang chi han bao");
+  </script>
+</body>
+
+</html>
