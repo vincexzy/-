@@ -1,0 +1,40 @@
+div{
+  width: 444px;
+  background-color:#ff7b47;
+  margin: 0px auto;
+  border: 10px solid rgb(136, 136, 136);
+  border-radius: 10px;
+}
+.a{
+  min-height: 400px;
+}
+.b{
+  min-height: 444px;
+}
+h1{
+  text-align: center;
+}
+p{
+  margin: 0px 50px;
+}
+.login{
+  width: 333px;
+  border: 1px solid #111;
+  margin: 10px auto;
+  padding: 10px;
+}
+input{
+  margin: 10px 0px;
+  display: block;
+  margin-left: 50px;
+}
+span{
+  margin-left: 50px;
+}
+img{
+  vertical-align: bottom;
+}
+a{
+  float: right;
+  margin-right: 55px;
+}
