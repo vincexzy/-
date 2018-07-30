@@ -23,7 +23,7 @@ ul{
 .nav ul li{
   display: inline-block;
   background-color: #7ab6e2;
-  width: 50px;
+  min-width: 50px;
   height: 30px;
   border: 5px solid #ddd;
   border-radius: 10px;
@@ -63,11 +63,8 @@ ul{
   /* border: 1px solid #000; */
 }
 
-.info form{
 
-}
-
-.info form input:first-child{
+.info  input:first-child{
   width: 555px;
   height: 30px;
   float: left;
@@ -75,14 +72,14 @@ ul{
   font-size: 22px;
 
 }
-.info form input:nth-child(2){
+.info  input:nth-child(2){
   background-color:#005e96;
   width: 111px;
   height: 30px;
   border: none;
 
 }
-.info form input:nth-child(2):hover{
+.info  input:nth-child(2):hover{
   background-color: #00948c;
   border: 1px solid #aaa;
   color:#222;

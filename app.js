@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var fs =require('fs');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -28,22 +29,26 @@ server.listen("3000");
 // socket.io 的 session
 io.use(iosession);
 
-// io.on("connection",function (socket) {
-//
-//   socket.on("say",data => {
-//     const num = ++ socket.handshake.session.num;
-//     socket.handshake.session.save();
-//     io.emit("newsay",data +"----" +new Date()+"---------"+num);
-//   });
-//   socket.on("req",function (data,cb) {
-//     console.log("jie shou dao qing qiu");
-//     cb(data);
-//   });
-//
-//   console.log("有人敲门了");
-//   socket.emit("welcome","huan ying ni");
-//   socket.on("question",data=>console.log(data));
-// });
+io.on("connection",function (socket) {
+
+  // socket.on("say",data => {
+  //   const num = ++ socket.handshake.session.num;
+  //   socket.handshake.session.save();
+  //   io.emit("newsay",data +"----" +new Date()+"---------"+num);
+  // });
+  socket.on("req",function (data,cb) {
+    console.log("jie shou dao qing qiu");
+    console.log(socket.handshake.session);
+    console.log("..........");
+    const username = socket.handshake.session.user.loginname;
+    console.log(username);
+    cb(data,username);
+  });
+
+  // console.log("有人敲门了");
+  // socket.emit("welcome","huan ying ni");
+  // socket.on("question",data=>console.log(data));
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

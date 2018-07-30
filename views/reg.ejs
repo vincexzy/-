@@ -8,14 +8,14 @@
   <body>
     <div class="b">
       <h1>注册</h1>
-      <form class="login" action="index.html" method="post">
+      <form class="login" action="/chat/reg" method="post">
         <p>用户名</p>
-        <input type="text" name="" value="" placeholder="name">
+        <input type="text" name="loginname" value="" placeholder="name">
         <p>密码</p>
-        <input type="password" name="" value="">
+        <input type="password" name="password" value="">
         <p>确认密码</p>
-        <input type="password" name="" value="">
-        <input type="password" name="" value="">
+        <input type="password" name="confirm" value="">
+        <input type="text" name="vnum" value="">
         <span>验证码</span>
         <img src="../images/1.png" alt="">
         <input type="submit" name="" value="注册">
@@ -23,5 +23,15 @@
       <a href="/chat">back</a>
       <a href="/chat/login">登录</a>
     </div>
+    <script type="text/javascript">
+    <%if(msg){%>
+      <%if (msg === "ok") {%>
+        alert("注册成功");
+        window.location.href ="/chat";
+      <%}else {%>
+        alert("注册失败");
+      <%}%>
+    <%}%>
+    </script>
   </body>
 </html>

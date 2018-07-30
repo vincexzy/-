@@ -8,17 +8,25 @@
   <body>
     <div class="a">
       <h1>登录</h1>
-      <form class="login" action="index.html" method="post">
+      <form class="login" action="/chat/login" method="post">
         <p>用户名</p>
-        <input type="text" name="" value="" placeholder="name">
+        <input type="text" name="loginname" value="" placeholder="name">
         <p>密码</p>
-        <input type="password" name="" value="">
-        <p>密码</p>
-        <input type="password" name="" value="">
+        <input type="password" name="password" value="">
         <input type="submit" name="" value="登录">
       </form>
       <a href="/chat">back</a>
       <a href="/chat/reg">注册</a>
     </div>
+    <script type="text/javascript">
+    <%if(msg){%>
+      <%if (msg === "ok") {%>
+        alert("<%= msg%>");
+        window.location.href ="/chat";
+      <%}else {%>
+        alert("登录失败");
+      <%}%>
+    <%}%>
+    </script>
   </body>
 </html>
