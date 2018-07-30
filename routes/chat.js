@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
-var paths = "dirName/message.txt";
-var person = "dirName/person.txt";
 
 var users = {};
 var txt = {};
@@ -37,6 +35,8 @@ router.post('/login',function (req,res,next) {
 
 
 router.get('/reg',function (req,res,next) {
+  req.session.firstnum=res.locals.firstnum = Math.round(Math.random()*10);
+  req.session.secondnum=res.locals.secondnum = Math.round(Math.random()*10);
   res.locals.msg = "";
   res.render('reg');
 });
@@ -46,19 +46,22 @@ router.post('/reg',function (req,res,next) {
     password,
     confirm,
     vnum,
-    firstnum,
-    secondnum
   } = req.body;
   // console.log(loginname,password,confirm);
-  if(!users[loginname] && loginname&&password&&confirm&&password===confirm){
+
+  if(!users[loginname] && loginname&&password&&confirm&&password===confirm ){
     users[loginname] = {
       loginname,
       password
     };
-    res.locals.msg = "ok"
+    res.locals.msg = "ok";
+    res.locals.firstnum = Math.round(Math.random()*10);
+    res.locals.secondnum = Math.round(Math.random()*10);
     res.render('reg');
   }else{
-    res.locals.msg = "no"
+    res.locals.msg = "no";
+    res.locals.firstnum = Math.round(Math.random()*10);
+    res.locals.secondnum = Math.round(Math.random()*10);
     res.render('reg');
   }
 });
